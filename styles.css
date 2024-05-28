@@ -4,9 +4,37 @@ body {
  justify-content: center;
  align-items: center;
  height: 100vh;
- background-color: #ffffff;
+ background-color: #8e9cee;
+ color: #ffffff;
+ font-family: Arial, sans-serif;
 }
 
 canvas {
- border: 1px solid #fff;
+ border: 1px solid #000000;
+}
+
+#gameOver {
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ text-align: center;
+}
+
+.over{
+ padding: 10px 20px;
+ background-color: #4CAF50;
+ color: white;
+ border: none;
+ border-radius: 5px;
+ cursor: pointer;
+ font-size: 16px;
+}
+
+.over:hover{
+ background-color: #45a049;
+}
+
+.hidden {
+ display: none;
 }
