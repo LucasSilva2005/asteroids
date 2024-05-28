@@ -33,7 +33,7 @@ class Spaceship {
         this.images = images;
         this.currentImage = new Image();
         this.currentImage.src = images.default;
-        this.speed = 5;
+        this.speed = 10;
     }
 
     draw() {
@@ -127,21 +127,32 @@ function updateGame() {
     ctx.font = '20px Arial';
     ctx.fillText(`Score: ${Math.floor(score / 60)}`, 10, 20);
 }
+// Movimentação da nave
+const keysPressed = {};
 
-function moveSpaceship(e) {
-    if (e.code === 'ArrowLeft') {
-        spaceship.move(-spaceship.speed, 0);
-    }
-    if (e.code === 'ArrowRight') {
-        spaceship.move(spaceship.speed, 0);
-    }
-    if (e.code === 'ArrowUp') {
-        spaceship.move(0, -spaceship.speed);
-    }
-    if (e.code === 'ArrowDown') {
-        spaceship.move(0, spaceship.speed);
-    }
+document.addEventListener('keydown', (e) => {
+  keysPressed[e.code] = true; 
+});
+
+document.addEventListener('keyup', (e) => {
+  keysPressed[e.code] = false;
+});
+
+function moveSpaceship() {
+  if (keysPressed['ArrowLeft']) {
+    spaceship.move(-spaceship.speed, 0);
+  }
+  if (keysPressed['ArrowRight']) {
+    spaceship.move(spaceship.speed, 0);
+  }
+  if (keysPressed['ArrowUp']) {
+    spaceship.move(0, -spaceship.speed);
+  }
+  if (keysPressed['ArrowDown']) {
+    spaceship.move(0, spaceship.speed);
+  }
 }
+// Fim da Movimentação da Nave
 
 function endGame() {
     clearInterval(gameInterval);
